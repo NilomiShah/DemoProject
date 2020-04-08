@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gxl-rw-EyX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="mm6-YH-kD5">
+            <objects>
+                <viewController id="Gxl-rw-EyX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hNj-nL-VmS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landingImage" translatesAutoresizingMaskIntoConstraints="NO" id="0Lh-AC-UTB">
+                                <rect key="frame" x="0.0" y="338" width="414" height="558"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tmroBlack" translatesAutoresizingMaskIntoConstraints="NO" id="bZF-da-rGf">
+                                <rect key="frame" x="46" y="67" width="322" height="106"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="landingColor"/>
+                        <constraints>
+                            <constraint firstItem="0Lh-AC-UTB" firstAttribute="leading" secondItem="Dpj-03-huU" secondAttribute="leading" id="HKZ-uP-O2C"/>
+                            <constraint firstItem="bZF-da-rGf" firstAttribute="centerX" secondItem="hNj-nL-VmS" secondAttribute="centerX" id="Ken-Oj-B0e"/>
+                            <constraint firstAttribute="bottom" secondItem="0Lh-AC-UTB" secondAttribute="bottom" id="Vz7-Ed-C2X"/>
+                            <constraint firstItem="0Lh-AC-UTB" firstAttribute="top" secondItem="bZF-da-rGf" secondAttribute="bottom" constant="165" id="XZN-e0-j8M"/>
+                            <constraint firstItem="0Lh-AC-UTB" firstAttribute="trailing" secondItem="Dpj-03-huU" secondAttribute="trailing" id="n3L-Oa-sgq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dpj-03-huU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="91c-su-ViP" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.40000000000001" y="138.17733990147784"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="landingImage" width="359" height="279"/>
+        <image name="tmroBlack" width="161" height="53"/>
+        <namedColor name="landingColor">
+            <color red="0.82352941176470584" green="0.85882352941176465" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
