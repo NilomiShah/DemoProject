@@ -48,7 +48,6 @@ extension WelcomeViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: WelcomeCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "WelcomeCollectionViewCell", for: indexPath) as? WelcomeCollectionViewCell ?? WelcomeCollectionViewCell()
         cell.setData(index: indexPath.row, data: welcomeArray[indexPath.row])
-        setColors(index: indexPath.row)
         return cell
     }
     
@@ -60,5 +59,10 @@ extension WelcomeViewController: UICollectionViewDelegate, UICollectionViewDataS
         return self.view.frame.size
     }
     
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let visibleRect = CGRect(origin: welcomeCollectionView.contentOffset, size: welcomeCollectionView.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        let indexPath = welcomeCollectionView.indexPathForItem(at: visiblePoint)
+        setColors(index: indexPath?.row ?? 0)
+    }
 }
