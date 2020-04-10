@@ -21,14 +21,17 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var errorEmailLabel      : UILabel!
     @IBOutlet weak var errorPasswordLabel   : UILabel!
 
+    var viewModel = SignUpViewModel()
     // MARK: - Lyfe Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        scrollView.delegate = self
+        setUpUI()
      }
     
+    func setUpUI() {
+        viewModel.setPasswordTextField(passwordTextField)
+        scrollView.delegate = self
+    }
     // MARK: - Action Methods
     @IBAction private func didTapOnLoginHere() {
     }

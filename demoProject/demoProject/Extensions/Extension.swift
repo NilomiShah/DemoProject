@@ -301,6 +301,22 @@ extension UITextField {
             self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: newValue!])
         }
     }
+    
+    func setPasswordEye(image : UIImage, selectedImage : UIImage) {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.height, height: self.frame.size.height))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.frame.size.height, height: self.frame.size.height))
+        button.setImage(image, for: .normal)
+        button.setImage(selectedImage, for: .selected)
+        button.addTarget(self, action: #selector(setRightButton(_:)), for: .touchUpInside)
+        view.addSubview(button)
+        self.rightView = view
+        self.rightViewMode = .always
+    }
+    
+    @objc private func setRightButton(_ sender : UIButton) {
+        sender.isSelected = !sender.isSelected
+        self.isSecureTextEntry = !self.isSecureTextEntry
+    }
 }
 
 
