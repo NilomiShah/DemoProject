@@ -41,13 +41,14 @@ class APIManager {
     }
 
       
-    func callRequest<Model: Codable>(model: Model.Type,_ router: APIRouter, onSuccess success: @escaping (_ response: Model?) -> Void, onFailure failure: @escaping (_ error: APICallError) -> Void) {
+    func callRequest<Model: Codable>(model: Model.Type,_ parameter: [String: Any], _ router: APIRouter, onSuccess success: @escaping (_ response: Model?) -> Void, onFailure failure: @escaping (_ error: APICallError) -> Void) {
         
             guard Application.reachability.isReachable == true else {
                 let apiError = APICallError(status: .offline)
                 failure(apiError)
                 return
             }
+        router.parameters = parameter
         self.sessionManager.request(router).response { response  in
                         
                         switch response.result {
