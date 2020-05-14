@@ -46,6 +46,8 @@ enum APIRouter: URLRequestConvertible {
         let baseUrl = Environment.APIBasePath()
         
         switch self {
+        case .createUser:
+            return baseUrl + "RegisterUser"
         case .login:
             return baseUrl + "account/login"
         case .hitList:
@@ -56,6 +58,8 @@ enum APIRouter: URLRequestConvertible {
     // MARK: - Parameters
     var parameters: Parameters? {
         switch self {
+        case .createUser(let email, let password, let FCMPushToke, let deviceType):
+            return [:]
          case .login(let username, let password):
            return ["UserName": username, "Password": password]
         case .hitList(let pageNum):
