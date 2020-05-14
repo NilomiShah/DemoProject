@@ -26,14 +26,13 @@ enum APIRouter: URLRequestConvertible {
     case login(username: String, password: String)
     case hitList(pageNum: Int)
     case createUser(email: String, password: String, FCMPushToken: String, deviceType: String)
-)
+
     
     // MARK: - HTTPMethod
     var method: HTTPMethod {
         switch self {
         case .createUser:
             return .post
-             
         case .login:
             return .post
         case .hitList:

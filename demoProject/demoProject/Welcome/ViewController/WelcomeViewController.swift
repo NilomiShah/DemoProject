@@ -17,9 +17,15 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUp()
+    }
+    
+    func setUp() {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     @IBAction func didTapOnCreateAccount(_ sender: Any) {
+        self.navigationController?.pushViewController( UIStoryboard.main.get(SignUpViewController.self), completion: nil)
     }
       
     @IBAction func didTapOnSkipNow(_ sender: Any) {
