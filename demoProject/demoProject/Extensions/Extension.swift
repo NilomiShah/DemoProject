@@ -211,6 +211,13 @@ extension UITextField {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", UITextField.emailRegex)
         return emailTest.evaluate(with: self.text)
     }
+    
+    func validatePassword() -> Bool {
+        let passswordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]$"
+           let emailTest = NSPredicate(format:"SELF MATCHES %@", passswordRegex)
+           return emailTest.evaluate(with: self.text)
+       }
+    
     func validateDigits() -> Bool {
         let digitsRegEx = "[0-9]*"
         let digitsTest = NSPredicate(format:"SELF MATCHES %@", digitsRegEx)

@@ -36,6 +36,9 @@ class SignUpViewController: UIViewController {
     @IBAction private func didTapOnLoginHere() {
     }
     @IBAction private func didTapOnCreateAccount() {
+        if (passwordTextField.validatePassword()) {
+            print("valid password")
+        }
     }
     @IBAction private func didTapOnBack() {
     }
