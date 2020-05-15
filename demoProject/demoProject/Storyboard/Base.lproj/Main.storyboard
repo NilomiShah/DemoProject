@@ -306,7 +306,7 @@
                                                                                         <real key="value" value="15"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                     <userDefinedRuntimeAttribute type="color" keyPath="bottomLineColor">
-                                                                                        <color key="value" name="textColor"/>
+                                                                                        <color key="value" red="0.95294117649999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="bottomLineWidth">
                                                                                         <real key="value" value="2"/>
@@ -345,7 +345,7 @@
                                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="bottomLineColor">
-                                                                                <color key="value" name="textColor"/>
+                                                                                <color key="value" red="0.95294117649999999" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="bottomLineWidth">
                                                                                 <real key="value" value="2"/>

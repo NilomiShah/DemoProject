@@ -30,6 +30,7 @@ class SignUpViewController: UIViewController {
     
     func setUpUI() {
         viewModel.setPasswordTextField(passwordTextField)
+        viewModel.setUpView(loginButton, privacyTermsLabel)
         scrollView.delegate = self
     }
     // MARK: - Action Methods
@@ -62,9 +63,8 @@ extension SignUpViewController: UIScrollViewDelegate {
 // MARK: - TextField Delegate
 extension SignUpViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == passwordTextField {
-            
-        }
+        viewModel.validEmail(emailTextField, errorEmailLabel)
+        viewModel.validPassord(passwordTextField, errorPasswordLabel)
         return true
     }
     
