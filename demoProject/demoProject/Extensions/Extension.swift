@@ -1,6 +1,7 @@
 
 import UIKit
 import CoreLocation
+import Foundation
 
 extension UIApplication {
     
@@ -213,9 +214,8 @@ extension UITextField {
     }
     
     func validatePassword() -> Bool {
-        let passswordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]$"
-           let emailTest = NSPredicate(format:"SELF MATCHES %@", passswordRegex)
-           return emailTest.evaluate(with: self.text)
+        let regex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$"
+        return self.text?.trimmed.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
        }
     
     func validateDigits() -> Bool {
@@ -320,9 +320,23 @@ extension UITextField {
         self.rightViewMode = .always
     }
     
+    func setCloseButton(image: UIImage) {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.size.height, height: self.frame.size.height))
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.frame.size.height, height: self.frame.size.height))
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(setCloseButton(_:)), for: .touchUpInside)
+        view.addSubview(button)
+        self.rightView = view
+        self.rightViewMode = .always
+    }
+    
     @objc private func setRightButton(_ sender : UIButton) {
         sender.isSelected = !sender.isSelected
         self.isSecureTextEntry = !self.isSecureTextEntry
+    }
+    
+    @objc private func setCloseButton(_ sender : UIButton) {
+        self.text = ""
     }
 }
 
@@ -1073,4 +1087,9 @@ extension UIView
             
         })
     }
+}
+extension String {
+    var trimmed: String {
+           return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+       }
 }

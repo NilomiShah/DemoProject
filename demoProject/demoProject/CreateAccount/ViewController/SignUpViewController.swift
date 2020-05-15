@@ -36,11 +36,11 @@ class SignUpViewController: UIViewController {
     @IBAction private func didTapOnLoginHere() {
     }
     @IBAction private func didTapOnCreateAccount() {
-        if (passwordTextField.validatePassword()) {
-            print("valid password")
-        }
+        viewModel.validations(emailTextField: emailTextField, passwordTextField: passwordTextField, errorEmailLabel: errorEmailLabel, errorPasswordLabel: errorPasswordLabel)
+   
     }
     @IBAction private func didTapOnBack() {
+        self.navigationController?.popViewController()
     }
     @IBAction private func didTapOnCross() {
     }
