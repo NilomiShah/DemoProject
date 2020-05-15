@@ -32,11 +32,11 @@ class Environment {
     class func APIBasePath() -> String {
         switch self.server {
             case .developement:
-                return "https://hn.algolia.com/api/v1/search_by_date?tags=story"
+                return "https://web1.anasource.com/TMRO/api/TMRO/"
             case .staging:
-                return "https://hn.algolia.com/api/v1/search_by_date?tags=story"
+                return "https://web1.anasource.com/TMRO/api/TMRO/"
             case .production:
-                return "https://hn.algolia.com/api/v1/search_by_date?tags=story"
+                return "https://web1.anasource.com/TMRO/api/TMRO/"
         }
     }
     

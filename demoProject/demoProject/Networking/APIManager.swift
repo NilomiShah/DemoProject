@@ -48,11 +48,16 @@ class APIManager {
                 failure(apiError)
                 return
             }
+        var parameter = router.parameters
+                   if router.parameters == nil {
+                       parameter = [:]
+                   }
         self.sessionManager.request(router).response { response  in
                         
                         switch response.result {
                         case .success:
                             do {
+                                print(String(decoding: response.data ?? Data(), as: UTF8.self))
                                 let decoder = JSONDecoder()
                                 let dictResponse = try decoder.decode(model, from: response.data ?? Data())
                                 DispatchQueue.main.async {
