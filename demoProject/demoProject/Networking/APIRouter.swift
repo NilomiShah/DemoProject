@@ -58,7 +58,15 @@ enum APIRouter: URLRequestConvertible {
     var parameters: Parameters? {
         switch self {
         case .createUser(let email, let password, let FCMPushToke, let deviceType):
-            return [:]
+            return
+            [
+              "Email" : email,
+              "Password" : password,
+              "FCMPushToken" : "",
+              "DeviceType" : "1",
+              "DeviceIdentifier" : "",
+              "DeviceOS" : "1.3"
+            ]
          case .login(let username, let password):
            return ["UserName": username, "Password": password]
         case .hitList(let pageNum):

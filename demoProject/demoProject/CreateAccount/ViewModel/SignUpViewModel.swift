@@ -60,7 +60,11 @@ final class SignUpViewModel {
             inValidPassword(errorPasswordLabel)
             setInvalidTextField(passwordTextField)
         } else {
-            
+            APIManager.shared.callRequest(model: CreateUserResponse.self, APIRouter.createUser(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", FCMPushToken: "", deviceType: ""), onSuccess: { (response) in
+                print(response?.user)
+            }) { (error) in
+                
+            }
         }
         
     }

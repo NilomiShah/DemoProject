@@ -48,6 +48,7 @@
 		6982D60D243B5469009E09D0 /* CalibreRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6982D5FF243B5469009E09D0 /* CalibreRegular.otf */; };
 		6FF37585246E25C70006D048 /* UIFont+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF37584246E25C70006D048 /* UIFont+Extentions.swift */; };
 		6FF37589246E2C620006D048 /* CreateUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF37588246E2C620006D048 /* CreateUserModel.swift */; };
+		6FF3758B246E4BFC0006D048 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF3758A246E4BFC0006D048 /* SignUpInteractor.swift */; };
 		A886E49D7BECFE72F67E3810 /* Pods_demoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874568B7CF66A7889F8CE829 /* Pods_demoProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		6982D5FF243B5469009E09D0 /* CalibreRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CalibreRegular.otf; sourceTree = "<group>"; };
 		6FF37584246E25C70006D048 /* UIFont+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extentions.swift"; sourceTree = "<group>"; };
 		6FF37588246E2C620006D048 /* CreateUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserModel.swift; sourceTree = "<group>"; };
+		6FF3758A246E4BFC0006D048 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		7B582B8A1B9207B3F3857382 /* Pods-demoProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoProject.debug.xcconfig"; path = "Target Support Files/Pods-demoProject/Pods-demoProject.debug.xcconfig"; sourceTree = "<group>"; };
 		874568B7CF66A7889F8CE829 /* Pods_demoProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demoProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DEF0738F8E01CD0C3ED3CB /* Pods-demoProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoProject.release.xcconfig"; path = "Target Support Files/Pods-demoProject/Pods-demoProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 		6FF37587246E2C470006D048 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				6FF3758A246E4BFC0006D048 /* SignUpInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				69322FC3243C629500815434 /* Logging.swift in Sources */,
 				690317F0243DDEBB00A86D83 /* GeneralExtensions.swift in Sources */,
 				69322FC1243C629500815434 /* Constants.swift in Sources */,
+				6FF3758B246E4BFC0006D048 /* SignUpInteractor.swift in Sources */,
 				690317F2243DDEBB00A86D83 /* DateExtensions.swift in Sources */,
 				6FF37585246E25C70006D048 /* UIFont+Extentions.swift in Sources */,
 				69322FC4243C629500815434 /* Environment.swift in Sources */,
