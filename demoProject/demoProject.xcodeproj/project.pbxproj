@@ -48,6 +48,8 @@
 		6982D60D243B5469009E09D0 /* CalibreRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6982D5FF243B5469009E09D0 /* CalibreRegular.otf */; };
 		6FCF5B06246EC5AB00F07760 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCF5B05246EC5AB00F07760 /* ProfileViewController.swift */; };
 		6FCF5B09246ECAB200F07760 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCF5B08246ECAB200F07760 /* ProfileViewModel.swift */; };
+		6FCF5B0B2473692400F07760 /* SelectProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCF5B0A2473692300F07760 /* SelectProfileViewController.swift */; };
+		6FCF5B0D24736A1F00F07760 /* AvtarImageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCF5B0C24736A1F00F07760 /* AvtarImageListCell.swift */; };
 		6FF37585246E25C70006D048 /* UIFont+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF37584246E25C70006D048 /* UIFont+Extentions.swift */; };
 		6FF37589246E2C620006D048 /* CreateUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF37588246E2C620006D048 /* CreateUserModel.swift */; };
 		6FF3758B246E4BFC0006D048 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF3758A246E4BFC0006D048 /* SignUpInteractor.swift */; };
@@ -99,6 +101,8 @@
 		6982D5FF243B5469009E09D0 /* CalibreRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CalibreRegular.otf; sourceTree = "<group>"; };
 		6FCF5B05246EC5AB00F07760 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6FCF5B08246ECAB200F07760 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		6FCF5B0A2473692300F07760 /* SelectProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectProfileViewController.swift; sourceTree = "<group>"; };
+		6FCF5B0C24736A1F00F07760 /* AvtarImageListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvtarImageListCell.swift; sourceTree = "<group>"; };
 		6FF37584246E25C70006D048 /* UIFont+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extentions.swift"; sourceTree = "<group>"; };
 		6FF37588246E2C620006D048 /* CreateUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserModel.swift; sourceTree = "<group>"; };
 		6FF3758A246E4BFC0006D048 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
@@ -315,6 +319,8 @@
 			isa = PBXGroup;
 			children = (
 				6FCF5B05246EC5AB00F07760 /* ProfileViewController.swift */,
+				6FCF5B0A2473692300F07760 /* SelectProfileViewController.swift */,
+				6FCF5B0C24736A1F00F07760 /* AvtarImageListCell.swift */,
 			);
 			path = ViewControlller;
 			sourceTree = "<group>";
@@ -491,9 +497,11 @@
 				6FCF5B06246EC5AB00F07760 /* ProfileViewController.swift in Sources */,
 				690317F0243DDEBB00A86D83 /* GeneralExtensions.swift in Sources */,
 				69322FC1243C629500815434 /* Constants.swift in Sources */,
+				6FCF5B0B2473692400F07760 /* SelectProfileViewController.swift in Sources */,
 				6FF3758B246E4BFC0006D048 /* SignUpInteractor.swift in Sources */,
 				690317F2243DDEBB00A86D83 /* DateExtensions.swift in Sources */,
 				6FF37585246E25C70006D048 /* UIFont+Extentions.swift in Sources */,
+				6FCF5B0D24736A1F00F07760 /* AvtarImageListCell.swift in Sources */,
 				69322FC4243C629500815434 /* Environment.swift in Sources */,
 				69322FC2243C629500815434 /* SwiftyJSON.swift in Sources */,
 				6FF37589246E2C620006D048 /* CreateUserModel.swift in Sources */,

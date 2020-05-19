@@ -49,5 +49,14 @@
 		<string>CalibreSemiBold.otf</string>
 		<string>CalibreMedium.otf</string>
 	</array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    <key>NSCameraUsageDescription</key>
+    <string>Allow access to take a profile photo or upload examples of your work.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Allow access to add a profile photo or upload examples of your work.</string>
 </dict>
 </plist>

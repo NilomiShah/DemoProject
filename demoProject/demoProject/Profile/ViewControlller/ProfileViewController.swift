@@ -14,14 +14,42 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
-    
+    @IBOutlet weak var lastNameErrorLabel: UILabel!
+    @IBOutlet weak var companyNameErrorLabel: UILabel!
+    @IBOutlet weak var firstNameErrorLabel: UILabel!
+    @IBOutlet weak var profileImageButton: UIButton!
     var viewModel = ProfileViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUp()
     }
+    
     @IBAction func didTapOnContinueButton(_ sender: Any) {
+        if(profileImageButton.currentBackgroundImage == nil) {
+            self.present(UIStoryboard.main.get(SelectProfileViewController.self), animated: true, completion: nil)
+        } else {
+            viewModel.validtion(vc: self)
+        }
+    }
+    @IBAction func didTapOnProfileButton(_ sender: Any) {
+        self.viewModel.prepareActionSheet(vc: self)
+    }
+    
+    func setUp() {
+        self.viewModel.setUpView(vc: self)
+    }
+    
+}
+// MARK: - TextField Delegate
+extension ProfileViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        self.viewModel.setUpView(vc: self)
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
     
 }

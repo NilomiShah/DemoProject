@@ -25,17 +25,8 @@ final class SignUpViewModel {
         privacyTermsLabel.attributedText = "By creating your account you agree to our terms of service and privacy policy".attributedStringWithColor(["terms of service","privacy policy"], font: UIFont.Calibre.medium(14), stringColor: UIColor(named: "termsAndConditions") ?? UIColor.lightGray, color: UIColor.blue)
     }
     
-    func setInvalidTextField(_ textField: UITextField) {
-        textField.bottomLineColor = UIColor(named: "landingColor3") ?? UIColor.orange
-        textField.bottomLineWidth = 2.0
-        textField.setCloseButton(image: UIImage(named: "crossOrange") ?? UIImage())
-        textField.becomeFirstResponder()
-    }
-    
     func validEmail(_ emailTextField: UITextField, _ errorEmailLabel: UILabel) {
-        emailTextField.bottomLineColor = UIColor(named: "TxtFldBottomBorder") ?? UIColor.lightGray
-        emailTextField.bottomLineWidth = 2.0
-        emailTextField.rightView = nil
+        emailTextField.setValidTextField()
         errorEmailLabel.isHidden = true
     }
     
@@ -54,14 +45,14 @@ final class SignUpViewModel {
     
     func validations(emailTextField: UITextField, passwordTextField: UITextField, errorEmailLabel: UILabel, errorPasswordLabel: UILabel) {
         if (emailTextField.validateEmail() == false) {
-            setInvalidTextField(emailTextField)
+            emailTextField.setInvalidTextField()
             errorEmailLabel.isHidden = false
         } else if (passwordTextField.validatePassword() == false) {
             inValidPassword(errorPasswordLabel)
-            setInvalidTextField(passwordTextField)
+            passwordTextField.setInvalidTextField()
         } else {
-           SignUpInteractor.callRequest(model: CreateUserResponse.self, APIRouter.createUser(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", FCMPushToken: "", deviceType: ""), onSuccess: { (response) in
-            print(response?.user)
+            SignUpInteractor.callRequest(model: CreateUserResponse.self, APIRouter.createUser(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", FCMPushToken: "", deviceType: ""), onSuccess: { (response) in
+                print(response?.user)
             }) { (error) in
                 
             }
@@ -70,42 +61,56 @@ final class SignUpViewModel {
     }
 }
 extension UIButton {
-func addUnderLine(font: UIFont, color: UIColor) {
-    if let textTitle = self.titleLabel {
-        let attributedcreateaccount = NSMutableAttributedString(
-                  string:
-            textTitle.text!,
-                  attributes: [
-                     .font: font,
-                     .foregroundColor: color
-                   ])
-               attributedcreateaccount.addAttribute(.foregroundColor,
-                      value: color,
-                      range: NSRange(location: 0, length: textTitle.text?.count ?? 0))
-                      attributedcreateaccount.addAttribute(NSAttributedString.Key.underlineStyle,
-                      value: NSUnderlineStyle.thick.rawValue as Any,
-                      range: NSRange(location: 0, length: textTitle.text?.count ?? 0))
-        
-        self.setAttributedTitle( attributedcreateaccount, for: UIControl.State.normal)
+    func addUnderLine(font: UIFont, color: UIColor) {
+        if let textTitle = self.titleLabel {
+            let attributedcreateaccount = NSMutableAttributedString(
+                string:
+                textTitle.text!,
+                attributes: [
+                    .font: font,
+                    .foregroundColor: color
+            ])
+            attributedcreateaccount.addAttribute(.foregroundColor,
+                                                 value: color,
+                                                 range: NSRange(location: 0, length: textTitle.text?.count ?? 0))
+            attributedcreateaccount.addAttribute(NSAttributedString.Key.underlineStyle,
+                                                 value: NSUnderlineStyle.thick.rawValue as Any,
+                                                 range: NSRange(location: 0, length: textTitle.text?.count ?? 0))
+            
+            self.setAttributedTitle( attributedcreateaccount, for: UIControl.State.normal)
+        }
     }
-}
 }
 
 extension String {
     func attributedStringWithColor(_ strings: [String], font: UIFont, stringColor: UIColor, color: UIColor, characterSpacing: UInt? = nil) -> NSAttributedString {
         let attributedString = NSMutableAttributedString(string: self)
         attributedString.addAttributes([.font: font,
-                   .foregroundColor: stringColor], range: NSRange(location: 0, length: attributedString.length))
+                                        .foregroundColor: stringColor], range: NSRange(location: 0, length: attributedString.length))
         for string in strings {
             let range = (self as NSString).range(of: string)
             attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
             attributedString.addAttribute(.foregroundColor,
-                                value: color,
-                                range: range)
-          attributedString.addAttribute(NSAttributedString.Key.underlineStyle,
-                                value: NSUnderlineStyle.thick.rawValue as Any,
-                                range: range)
+                                          value: color,
+                                          range: range)
+            attributedString.addAttribute(NSAttributedString.Key.underlineStyle,
+                                          value: NSUnderlineStyle.thick.rawValue as Any,
+                                          range: range)
         }
         return attributedString
+    }
+}
+extension UITextField {
+    func setInvalidTextField() {
+        self.bottomLineColor = UIColor(named: "landingColor3") ?? UIColor.orange
+        self.bottomLineWidth = 2.0
+        self.setCloseButton(image: UIImage(named: "crossOrange") ?? UIImage())
+        self.becomeFirstResponder()
+    }
+    
+    func setValidTextField() {
+        self.bottomLineColor = UIColor(named: "TxtFldBottomBorder") ?? UIColor.lightGray
+        self.bottomLineWidth = 2.0
+        self.rightView = nil
     }
 }

@@ -2,6 +2,7 @@
 import UIKit
 import CoreLocation
 import Foundation
+import Photos
 
 extension UIApplication {
     
@@ -1092,4 +1093,68 @@ extension String {
     var trimmed: String {
            return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
        }
+}
+
+extension UIImagePickerController {
+    class func seekPermission(for sourceType: UIImagePickerController.SourceType, handler: @escaping ((Bool) -> Void)) {
+        if sourceType == .photoLibrary || sourceType == .savedPhotosAlbum {
+            // Denied when photo disabled, authorized when photos is enabled. Not affected by camera
+            PHPhotoLibrary.requestAuthorization { authorizationStatus in
+                switch authorizationStatus {
+                case .authorized:
+                    DispatchQueue.main.async {
+                        handler(true)
+                    }
+                default:
+                    DispatchQueue.main.async {
+                        handler(false)
+                    }
+                }
+            }
+        } else if sourceType == .camera {
+            if UIImagePickerController.isSourceTypeAvailable(.camera) == false {
+                handler(false)
+                return
+            }
+            // Checks for Camera access:
+            let authorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
+            switch authorizationStatus {
+            case .authorized:
+                DispatchQueue.main.async {
+                    handler(true)
+                }
+            case .notDetermined:
+                // seek access first:
+                AVCaptureDevice.requestAccess(for: .video) { granted in
+                    DispatchQueue.main.async {
+                        if granted {
+                            handler(true)
+                        } else {
+                            handler(false)
+                        }
+                    }
+                }
+            default:
+                DispatchQueue.main.async {
+                    handler(false)
+                }
+            }
+        }
+    }
+    class func noPermissionAlert(for sourceType: UIImagePickerController.SourceType) -> UIAlertController {
+        var message = ""
+        if sourceType == .photoLibrary || sourceType == .savedPhotosAlbum {
+            message = "photoLibraryNoPermission"
+        } else {
+            message = "cameraNoPermission"
+        }
+        let setting = UIAlertAction(title: "settings", style: .default) { (_) in
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+        }
+        let cancel = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        alert.addAction(setting)
+        alert.addAction(cancel)
+        return alert
+    }
 }
