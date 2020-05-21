@@ -51,3 +51,27 @@ final class Device {
     }
     
 }
+
+// MARK:- UserDefault Methods
+
+func setUserDefault(ObjectToSave : AnyObject?  , KeyToSave : String) {
+    let defaults = UserDefaults.standard
+    
+    if (ObjectToSave != nil)
+    {
+        
+        defaults.set(ObjectToSave, forKey: KeyToSave)
+    }
+    
+    UserDefaults.standard.synchronize()
+}
+
+func getUserDefault(KeyToReturnValye : String) -> AnyObject? {
+    let defaults = UserDefaults.standard
+    
+    if let name = defaults.value(forKey: KeyToReturnValye)
+    {
+        return name as AnyObject?
+    }
+    return nil
+}

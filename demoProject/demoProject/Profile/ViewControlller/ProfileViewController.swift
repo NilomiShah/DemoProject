@@ -27,7 +27,10 @@ class ProfileViewController: UIViewController {
     
     @IBAction func didTapOnContinueButton(_ sender: Any) {
         if(profileImageButton.currentBackgroundImage == nil) {
-            self.present(UIStoryboard.main.get(SelectProfileViewController.self), animated: true, completion: nil)
+            let avatarVC = UIStoryboard.main.get(SelectProfileViewController.self)
+            avatarVC.modalPresentationStyle = .overFullScreen
+            avatarVC.modalTransitionStyle = .crossDissolve
+            self.present(avatarVC, animated: true, completion: nil)
         } else {
             viewModel.validtion(vc: self)
         }

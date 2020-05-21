@@ -969,7 +969,9 @@ extension UserDefaults {
         }
     }
     
+    
 }
+
 extension UIImage {
     func fixOrientation() -> UIImage {
         if self.imageOrientation == UIImage.Orientation.up {

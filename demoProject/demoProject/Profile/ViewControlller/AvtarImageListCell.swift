@@ -10,4 +10,7 @@ import UIKit
 
 class AvtarImageListCell: UICollectionViewCell {
   
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    @IBOutlet weak var selectedImageView: UIImageView!
 }

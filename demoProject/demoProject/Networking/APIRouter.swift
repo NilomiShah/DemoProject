@@ -23,9 +23,8 @@ enum ContentType: String {
 
 enum APIRouter: URLRequestConvertible {
 
-    case login(username: String, password: String)
-    case hitList(pageNum: Int)
     case createUser(email: String, password: String, FCMPushToken: String, deviceType: String)
+    case getConfigurationDetail
 
     
     // MARK: - HTTPMethod
@@ -33,9 +32,7 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .createUser:
             return .post
-        case .login:
-            return .post
-        case .hitList:
+        case .getConfigurationDetail:
             return .get
         }
     }
@@ -47,10 +44,8 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .createUser:
             return baseUrl + "RegisterUser"
-        case .login:
-            return baseUrl + "account/login"
-        case .hitList:
-            return baseUrl + ""
+        case .getConfigurationDetail:
+            return baseUrl + "GetConfigurationDetail"
         }
     }
     
@@ -59,11 +54,8 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .createUser(let email, let password, let FCMPushToken, let deviceType):
             return ["Email" : email, "Password" : password, "FCMPushToken" : "", "DeviceType" : "1","DeviceIdentifier" : Device.uniqueIdentifier ,"DeviceOS" : "13.2"]
-         case .login(let username, let password):
-           return ["UserName": username, "Password": password]
-        case .hitList(let pageNum):
-            return ["page": pageNum]
-
+        case .getConfigurationDetail:
+            return [:]
         }
     }
     
