@@ -56,12 +56,15 @@ struct User : Codable {
     let token : String?
     let expiration : String?
     let profileRolesList : [ProfileRolesList]?
+    var profile : Profile?
 
     enum CodingKeys: String, CodingKey {
 
         case token = "Token"
         case expiration = "Expiration"
         case profileRolesList = "ProfileRolesList"
+        case profile            = "Profile"
+
     }
 
     init(from decoder: Decoder) throws {
@@ -69,6 +72,8 @@ struct User : Codable {
         token = try values.decodeIfPresent(String.self, forKey: .token)
         expiration = try values.decodeIfPresent(String.self, forKey: .expiration)
         profileRolesList = try values.decodeIfPresent([ProfileRolesList].self, forKey: .profileRolesList)
+        profile = try values.decodeIfPresent(Profile.self, forKey: .profile)
+
     }
 
 }

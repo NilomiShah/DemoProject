@@ -37,6 +37,13 @@ class SelectProfileViewController: BaseViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func didTapOnSaveButton(_ sender: Any) {
+        if let vc = (self.presentingViewController as? UINavigationController)?.viewControllers.last as? ProfileViewController {
+            vc.viewModel.profileURL = self.avatars?[selectedIndex].imageURL ?? ""
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 // MARK: - Action Methods
 extension SelectProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

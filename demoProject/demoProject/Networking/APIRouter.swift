@@ -25,12 +25,12 @@ enum APIRouter: URLRequestConvertible {
 
     case createUser(email: String, password: String, FCMPushToken: String, deviceType: String)
     case getConfigurationDetail
-
+    case updateProfile(profileID: String, firstName: String, lastName: String, company: String, profilePhotoURL: String, userRole: String, fullAddress: String, address1 : String, address2: String, city: String, state: String, zip: String, latitude: String, longitude: String, bio: String, jobTitle: String)
     
     // MARK: - HTTPMethod
     var method: HTTPMethod {
         switch self {
-        case .createUser:
+        case .createUser,.updateProfile:
             return .post
         case .getConfigurationDetail:
             return .get
@@ -46,6 +46,8 @@ enum APIRouter: URLRequestConvertible {
             return baseUrl + "RegisterUser"
         case .getConfigurationDetail:
             return baseUrl + "GetConfigurationDetail"
+        case .updateProfile:
+            return baseUrl + "UpdateUserProfile"
         }
     }
     
@@ -56,6 +58,25 @@ enum APIRouter: URLRequestConvertible {
             return ["Email" : email, "Password" : password, "FCMPushToken" : "", "DeviceType" : "1","DeviceIdentifier" : Device.uniqueIdentifier ,"DeviceOS" : "13.2"]
         case .getConfigurationDetail:
             return [:]
+        case .updateProfile(let profileID, let firstName, let lastName, let company, let profilePhotoURL, let userRole, let fullAddress, let address1, let address2, let city, let state, let zip, let latitude, let longitude, let bio, let jobTitle):
+            return [
+                "ProfileID": profileID,
+                "FirstName": firstName,
+                "LastName": lastName,
+                "Company": company,
+                "ProfilePhotoURL": profilePhotoURL,
+                "UserRole":"\(userRole)",
+                "FullAddress": fullAddress,
+                "Address1": address1 ,
+                "Address2":address2,
+                "City": city ,
+                "State": state ,
+                "Zip": zip,
+                "Latitude": latitude,
+                "Longitude": longitude,
+                "Bio": bio ,
+                "JobTitle": jobTitle
+            ]
         }
     }
     
@@ -70,6 +91,7 @@ enum APIRouter: URLRequestConvertible {
         // Common Headers
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
+        urlRequest.headers = APIManager.shared.header
         
         //        if (Application.shared.userManager?.authenticationState == .signedIn) {
         //            let token = "Bearer \(Application.shared.userManager?.authToken.value?.accessToken ?? "")"
@@ -77,6 +99,7 @@ enum APIRouter: URLRequestConvertible {
         //        }
         
         // Parameters
+        
         if(method != .get) {
             if let parameters = parameters {
                 do {

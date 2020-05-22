@@ -13,7 +13,7 @@ import Alamofire
 class APIManager {
 
     /// Custom header field
-    var header  = ["Content-Type":"application/json"]
+    var header: HTTPHeaders  = ["Content-Type":"application/json"]
 
     static let shared:APIManager = {
         let instance = APIManager()
@@ -37,7 +37,7 @@ class APIManager {
     
     /// Remove Bearer token with this method
     func removeAuthorizeToken() {
-        self.header.removeValue(forKey: "Authorization")
+        self.header.remove(name: "Authorization")
     }
 
       
@@ -52,6 +52,8 @@ class APIManager {
                    if router.parameters == nil {
                        parameter = [:]
                    }
+      
+        
         self.sessionManager.request(router).response { response  in
                         
                         switch response.result {

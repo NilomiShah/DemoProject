@@ -43,7 +43,7 @@ final class SignUpViewModel {
         errorPasswordLabel.textColor = UIColor(named: "landingColor3") ?? UIColor.orange
     }
     
-    func validations(emailTextField: UITextField, passwordTextField: UITextField, errorEmailLabel: UILabel, errorPasswordLabel: UILabel) {
+    func validations(emailTextField: UITextField, passwordTextField: UITextField, errorEmailLabel: UILabel, errorPasswordLabel: UILabel, viewcontroller: SignUpViewController) {
         if (emailTextField.validateEmail() == false) {
             emailTextField.setInvalidTextField()
             errorEmailLabel.isHidden = false
@@ -53,6 +53,9 @@ final class SignUpViewModel {
         } else {
             SignUpInteractor.callRequest(model: CreateUserResponse.self, APIRouter.createUser(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", FCMPushToken: "", deviceType: ""), onSuccess: { (response) in
                 print(response?.user)
+                Global.shared.user = response?.user
+                APIManager.shared.setToken(authorizeToken: response?.user?.token ?? "")
+                viewcontroller.navigateTo(objVC: UIStoryboard.main.get(ProfileViewController.self))
             }) { (error) in
                 
             }

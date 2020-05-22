@@ -33,11 +33,15 @@ class SignUpViewController: UIViewController {
         viewModel.setUpView(loginButton, privacyTermsLabel)
         scrollView.delegate = self
     }
+    
+    func navigateTo(objVC: UIViewController) {
+        self.navigationController?.pushViewController(objVC)
+    }
     // MARK: - Action Methods
     @IBAction private func didTapOnLoginHere() {
     }
     @IBAction private func didTapOnCreateAccount() {
-        viewModel.validations(emailTextField: emailTextField, passwordTextField: passwordTextField, errorEmailLabel: errorEmailLabel, errorPasswordLabel: errorPasswordLabel)
+        viewModel.validations(emailTextField: emailTextField, passwordTextField: passwordTextField, errorEmailLabel: errorEmailLabel, errorPasswordLabel: errorPasswordLabel, viewcontroller: self)
    
     }
     @IBAction private func didTapOnBack() {

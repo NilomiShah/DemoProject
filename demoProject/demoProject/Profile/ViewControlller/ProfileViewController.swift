@@ -26,7 +26,8 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func didTapOnContinueButton(_ sender: Any) {
-        if(profileImageButton.currentBackgroundImage == nil) {
+        print(Global.shared.user?.profile?.profilePhotoURL)
+        if(profileImageButton.currentBackgroundImage == nil && viewModel.profileURL == "") {
             let avatarVC = UIStoryboard.main.get(SelectProfileViewController.self)
             avatarVC.modalPresentationStyle = .overFullScreen
             avatarVC.modalTransitionStyle = .crossDissolve
