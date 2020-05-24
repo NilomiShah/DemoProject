@@ -10,4 +10,6 @@ target 'demoProject' do
     pod 'SDWebImage'
     pod 'GoogleMaps'
     pod 'GooglePlaces'
+    pod 'GoogleSignIn'
+
 end

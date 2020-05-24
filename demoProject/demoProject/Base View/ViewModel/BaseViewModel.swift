@@ -15,6 +15,7 @@ final class BaseViewModel {
         APIManager.shared.callRequest(model: MasterResponse.self, APIRouter.getConfigurationDetail, onSuccess: { response in
             setUserDefault(ObjectToSave: response as AnyObject?, KeyToSave: Key.masterdata)
             Global.shared.masterData = response
+            setAPIKeys()
             completion(true)
         }) { (error) in
             completion(true)

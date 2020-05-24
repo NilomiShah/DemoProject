@@ -42,6 +42,7 @@ extension ChangeLocationViewModel {
                         self.viewController.navigationController?.popViewController()
                     }
                 } else {
+                    
                 }
         }
     }
@@ -52,6 +53,8 @@ extension ChangeLocationViewModel {
             .getUserLocationData { (success, data) in
                 if success,
                     let place = data {
+                    self.viewController.buttonSearchLocation.setTitle(place.city?.stringValue, for: .normal)
+
                     if self.viewController.placeData != nil {
                         self.viewController.butonCurrentLocation.setTitle(place.city?.stringValue, for: .normal)
                         self.viewController.placeData!(place)

@@ -9,6 +9,7 @@
 import Foundation
 import GoogleMaps
 import GooglePlaces
+import GoogleSignIn
 
 class GooglePlacesHelper {
     ///Shared Instance
@@ -39,3 +40,11 @@ class GooglePlacesHelper {
         })
     }
 }
+
+func setAPIKeys() {
+       if let googleAPiKey = Global.shared.masterData?.googleAPIKey,
+           let googleAuthKey = Global.shared.masterData?.googleAuthKey {
+           GIDSignIn.sharedInstance().clientID = googleAuthKey
+           GMSPlacesClient.provideAPIKey(googleAPiKey)
+       }
+   }

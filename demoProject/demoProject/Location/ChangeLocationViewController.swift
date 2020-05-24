@@ -34,6 +34,7 @@ class ChangeLocationViewController: BaseViewController {
         if LocationManger.shared.isLocationServiceEnabled() {
             viewModel.getCurrentPlaceData()
         } else {
+            LocationManger.shared.askForLocationPermission()
         }
     }
 }
@@ -68,6 +69,7 @@ extension ChangeLocationViewController: GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController,
                         didSelect prediction: GMSAutocompletePrediction) -> Bool {
         let predictedPlace = PlaceSearchData(prediction: prediction)
+        self.buttonSearchLocation.setTitle(predictedPlace.title?.stringValue, for: .normal)
         viewModel.extractPlaceData(predictedPlace)
         return true
     }
