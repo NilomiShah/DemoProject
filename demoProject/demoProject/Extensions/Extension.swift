@@ -1160,3 +1160,42 @@ extension UIImagePickerController {
         return alert
     }
 }
+extension UITableView {
+    
+    func registerAndGet<T:UITableViewCell>(cell identifier:T.Type) -> T?{
+        let cellID = String(describing: identifier)
+        
+        if let cell = self.dequeueReusableCell(withIdentifier: cellID) as? T {
+            return cell
+        } else {
+            //regiser
+            self.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
+            return self.dequeueReusableCell(withIdentifier: cellID) as? T
+            
+        }
+    }
+    
+}
+extension Array where Element: Equatable {
+    ///        [1, 2, 2, 3, 4, 5].removeAll(2) -> [1, 3, 4, 5]
+    ///        ["h", "e", "l", "l", "o"].removeAll("l") -> ["h", "e", "o"]
+    ///
+    /// - Parameter item: item to remove.
+    /// - Returns: self after removing all instances of item.
+    @discardableResult
+    mutating func removeAll(_ item: Element) -> [Element] {
+        removeAll(where: { $0 == item })
+        return self
+    }
+    
+    func toString() -> String {
+        return (self.compactMap{Generic($0).stringValue}).joined(separator: ", ")
+    }
+}
+extension Array where Element: Equatable {
+    mutating func remove(object: Element) {
+        if let index = firstIndex(of: object) {
+            remove(at: index)
+        }
+    }
+}

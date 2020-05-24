@@ -13,7 +13,7 @@ final class BaseViewModel {
     
     func callMasterApi(_  completion: @escaping (_ success: Bool) -> Void) {
         APIManager.shared.callRequest(model: MasterResponse.self, APIRouter.getConfigurationDetail, onSuccess: { response in
-//            setUserDefault(ObjectToSave: response as AnyObject?, KeyToSave: Key.masterdata)
+            setUserDefault(ObjectToSave: response as AnyObject?, KeyToSave: Key.masterdata)
             Global.shared.masterData = response
             completion(true)
         }) { (error) in

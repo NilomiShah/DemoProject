@@ -1,5 +1,12 @@
 PODS:
   - Alamofire (5.0.0)
+  - GoogleMaps (3.8.0):
+    - GoogleMaps/Maps (= 3.8.0)
+  - GoogleMaps/Base (3.8.0)
+  - GoogleMaps/Maps (3.8.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.8.0):
+    - GoogleMaps/Base (= 3.8.0)
   - IQKeyboardManagerSwift (6.5.5)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
@@ -7,20 +14,26 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - GoogleMaps
+  - GooglePlaces
   - IQKeyboardManagerSwift
   - SDWebImage
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - GoogleMaps
+    - GooglePlaces
     - IQKeyboardManagerSwift
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
+  GoogleMaps: 7c8d66d70e4e8c300f43a7219d8fdaad7b325a9a
+  GooglePlaces: d5f70c3e9e427964fdeca1301a665d276ccd8754
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
 
-PODFILE CHECKSUM: b842c056200285dc3ab922ab930b6046b5807a7d
+PODFILE CHECKSUM: f38c3c7f00ab2b7363cad06861dd440c06e040e2
 
 COCOAPODS: 1.9.1

@@ -91,12 +91,11 @@ enum APIRouter: URLRequestConvertible {
         // Common Headers
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-        urlRequest.headers = APIManager.shared.header
-        
-        //        if (Application.shared.userManager?.authenticationState == .signedIn) {
-        //            let token = "Bearer \(Application.shared.userManager?.authToken.value?.accessToken ?? "")"
-        //            urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
-        //        }
+
+        if (Global.shared.user?.token != nil) {
+                    let token = "Bearer \(Global.shared.user?.token ?? "")"
+                    urlRequest.setValue(token, forHTTPHeaderField: "Authorization")
+                }
         
         // Parameters
         

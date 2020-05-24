@@ -60,7 +60,7 @@ func setUserDefault(ObjectToSave : AnyObject?  , KeyToSave : String) {
     if (ObjectToSave != nil)
     {
         
-        defaults.set(ObjectToSave, forKey: KeyToSave)
+        defaults.set(ObjectToSave as? Data, forKey: KeyToSave)
     }
     
     UserDefaults.standard.synchronize()

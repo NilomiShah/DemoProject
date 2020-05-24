@@ -11,10 +11,10 @@ import Alamofire
 
 
 class APIManager {
-
+    
     /// Custom header field
     var header: HTTPHeaders  = ["Content-Type":"application/json"]
-
+    
     static let shared:APIManager = {
         let instance = APIManager()
         return instance
@@ -39,96 +39,91 @@ class APIManager {
     func removeAuthorizeToken() {
         self.header.remove(name: "Authorization")
     }
-
-      
+    
+    
     func callRequest<Model: Codable>(model: Model.Type,_ router: APIRouter, onSuccess success: @escaping (_ response: Model?) -> Void, onFailure failure: @escaping (_ error: APICallError) -> Void) {
         
-            guard Application.reachability.isReachable == true else {
-                let apiError = APICallError(status: .offline)
-                failure(apiError)
-                return
-            }
-        var parameter = router.parameters
-                   if router.parameters == nil {
-                       parameter = [:]
-                   }
-      
+        guard Application.reachability.isReachable == true else {
+            let apiError = APICallError(status: .offline)
+            failure(apiError)
+            return
+        }
         
         self.sessionManager.request(router).response { response  in
-                        
-                        switch response.result {
-                        case .success:
-                            do {
-                                print(String(decoding: response.data ?? Data(), as: UTF8.self))
-                                let decoder = JSONDecoder()
-                                let dictResponse = try decoder.decode(model, from: response.data ?? Data())
-                                DispatchQueue.main.async {
-                                    success(dictResponse)
-                                }
-                            } catch (let parsingError) {
-                                print(parsingError)
-                                success(nil)
-                            }
-                            break
-                        case .failure(let error):
-                            print("Error: \(error)")
-                            let apiError = APICallError(status: .failed)
-                            failure(apiError)
-                            break
-                        }
+            
+            switch response.result {
+            case .success:
+                do {
+                    print(String(decoding: response.data ?? Data(), as: UTF8.self))
+                    let decoder = JSONDecoder()
+                    let dictResponse = try decoder.decode(model, from: response.data ?? Data())
+                    DispatchQueue.main.async {
+                        success(dictResponse)
                     }
+                } catch (let parsingError) {
+                    print(parsingError)
+                    success(nil)
+                }
+                break
+            case .failure(let error):
+                print("Error: \(error)")
+                let apiError = APICallError(status: .failed)
+                failure(apiError)
+                break
+            }
         }
-      
-        func callRequestWithMultipartData<Model: Codable>(model: Model.Type,_ router: APIRouter, arrImages: [UIImage]?, onSuccess success: @escaping (_ response: Model?) -> Void, onFailure failure: @escaping (_ error: APICallError) -> Void) {
-                        
-            var parameter = router.parameters
-            if router.parameters == nil {
-                parameter = [:]
-            }
-            
-            let headers: HTTPHeaders = [
-                /* "Authorization": "your_access_token",  in case you need authorization header */
-                "Authorization": self.header["Authorization"]!,
-                "Content-type": "multipart/form-data"
-            ]
-            
-            self.sessionManager.upload(multipartFormData: { multipartFormData in
-                
-                for image in arrImages! {
-                    if let imageData = image.pngData() {
-                        multipartFormData.append(imageData, withName: "user[profile_picture]", fileName: "test.png", mimeType: "image/png")
-                    }
-                }
-                
-                for (key, value) in parameter! {
-                    multipartFormData.append(String(describing: value).data(using: .utf8)!, withName: key)
-                }
-            }, to: router.path, usingThreshold: UInt64.init(), method: router.method , headers: headers).responseJSON { (response) in
-                plog(response.value)
-                switch response.result {
-                case .success:
-                    
-                    do {
-                        let decoder = JSONDecoder()
-                        let dictResponse = try decoder.decode(model, from: response.data ?? Data())
-                        DispatchQueue.main.async {
-                            success(dictResponse)
-                        }
-                    } catch (let parsingError) {
-                        print(parsingError)
-                        success(nil)
-                    }
-                    break
-                case .failure(let error):
-                    print("Error: \(error)")
-                    let apiError = APICallError(status: .failed)
-                    failure(apiError)
-                    break
-                }
-            }
+    }
+    
+    func callRequestWithMultipartData<Model: Codable>(model: Model.Type,_ router: APIRouter, arrImages: [UIImage]?, onSuccess success: @escaping (_ response: Model?) -> Void, onFailure failure: @escaping (_ error: APICallError) -> Void) {
+        
+        var parameter = router.parameters
+        if router.parameters == nil {
+            parameter = [:]
         }
         
-  
+        let headers: HTTPHeaders = [
+            /* "Authorization": "your_access_token",  in case you need authorization header */
+            "Authorization": self.header["Authorization"]!,
+            "Content-type": "multipart/form-data"
+        ]
+        
+        self.sessionManager.upload(multipartFormData: { multipartFormData in
+            
+            for image in arrImages! {
+                if let imageData = image.pngData() {
+                    multipartFormData.append(imageData, withName: "user[profile_picture]", fileName: "test.png", mimeType: "image/png")
+                }
+            }
+            
+            for (key, value) in parameter! {
+                multipartFormData.append(String(describing: value).data(using: .utf8)!, withName: key)
+            }
+        }, to: router.path, usingThreshold: UInt64.init(), method: router.method , headers: headers).responseJSON { (response) in
+            plog(response.value)
+            switch response.result {
+            case .success:
+                
+                do {
+                    let decoder = JSONDecoder()
+                    let dictResponse = try decoder.decode(model, from: response.data ?? Data())
+                    DispatchQueue.main.async {
+                        success(dictResponse)
+                    }
+                } catch (let parsingError) {
+                    print(parsingError)
+                    success(nil)
+                }
+                break
+            case .failure(let error):
+                print("Error: \(error)")
+                let apiError = APICallError(status: .failed)
+                failure(apiError)
+                break
+            }
+        }
+    }
+    
+    
     //MARK:- Cancel Requests
     
     func cancelAllTasks() {

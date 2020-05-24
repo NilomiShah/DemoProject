@@ -8,4 +8,6 @@ target 'demoProject' do
    pod 'IQKeyboardManagerSwift'
     pod 'Alamofire'
     pod 'SDWebImage'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
 end
