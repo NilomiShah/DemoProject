@@ -25,7 +25,7 @@ final class ProfileViewModel {
             } else {
                 APIManager.shared.callRequest(model: ProfileResponse.self, APIRouter.updateProfile(profileID: Global.shared.user?.profile?.profileID?.stringValue ?? "", firstName: profileViewController.firstNameTextField.trimmedText ?? "", lastName: profileViewController.lastNameTextField.trimmedText ?? "", company: Global.shared.user?.profile?.company?.stringValue ?? "", profilePhotoURL: profileURL, userRole: "3", fullAddress: Global.shared.user?.profile?.fullAddress?.stringValue ?? "", address1: Global.shared.user?.profile?.address1?.stringValue ?? "", address2: Global.shared.user?.profile?.address2?.stringValue ?? "", city: Global.shared.user?.profile?.city?.stringValue ?? "", state: Global.shared.user?.profile?.state?.stringValue ?? "", zip: Global.shared.user?.profile?.zip?.stringValue ?? "", latitude: Global.shared.user?.profile?.latitude?.stringValue ?? "", longitude: Global.shared.user?.profile?.longitude?.stringValue ?? "", bio: Global.shared.user?.profile?.bio?.stringValue ?? "", jobTitle: Global.shared.user?.profile?.jobTitle?.stringValue ?? ""), onSuccess: { (response) in
                     print(response)
-                    vc.navigationController?.pushViewController(UIStoryboard.main.get(ChangeLocationViewController.self))
+                    vc.navigationController?.pushViewController(UIStoryboard.main.get(TellUsAboutYouViewController.self))
                 }) { (error) in
                     
                 }

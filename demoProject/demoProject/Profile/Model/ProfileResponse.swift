@@ -1,5 +1,7 @@
 
 import Foundation
+
+
 struct ProfileResponse : Codable {
 	var profile : Profile?
 
@@ -14,6 +16,25 @@ struct ProfileResponse : Codable {
 	}
 
 }
+
+struct UserProfile : Codable {
+   
+    let userProfile : Profile?
+    let linkedProfile : Profile?
+    
+    enum CodingKeys: String, CodingKey {
+        case linkedProfile = "LinkedProfile"
+        case userProfile = "Profile"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        userProfile = try values.decodeIfPresent(Profile.self, forKey: .userProfile)
+        linkedProfile = try values.decodeIfPresent(Profile.self, forKey: .linkedProfile)
+    }
+
+}
+
 struct Profile : Codable {
     var profileID : Generic?
     var profilePhotoURL : Generic?

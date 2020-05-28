@@ -66,6 +66,15 @@
 		6FCF5B09246ECAB200F07760 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCF5B08246ECAB200F07760 /* ProfileViewModel.swift */; };
 		6FCF5B0B2473692400F07760 /* SelectProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCF5B0A2473692300F07760 /* SelectProfileViewController.swift */; };
 		6FCF5B0D24736A1F00F07760 /* AvtarImageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCF5B0C24736A1F00F07760 /* AvtarImageListCell.swift */; };
+		6FF23DF1247E7F5C000152F7 /* TellAboutUsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF23DED247E7F5C000152F7 /* TellAboutUsInteractor.swift */; };
+		6FF23DF2247E7F5C000152F7 /* TellUsAboutYouViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF23DEE247E7F5C000152F7 /* TellUsAboutYouViewModel.swift */; };
+		6FF23DF3247E7F5C000152F7 /* TellUsAboutYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF23DEF247E7F5C000152F7 /* TellUsAboutYouViewController.swift */; };
+		6FF23DF5247E99BA000152F7 /* UIViewController+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF23DF4247E99BA000152F7 /* UIViewController+Extentions.swift */; };
+		6FF23E00247F7E4A000152F7 /* ClientOrCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF23DF9247F7E4A000152F7 /* ClientOrCreatorViewController.swift */; };
+		6FF23E01247F7E4A000152F7 /* ClientOrCreativeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF23DFA247F7E4A000152F7 /* ClientOrCreativeInteractor.swift */; };
+		6FF23E02247F7E4A000152F7 /* ClientOrCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF23DFB247F7E4A000152F7 /* ClientOrCreatorViewModel.swift */; };
+		6FF23E03247F7E4A000152F7 /* RadioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF23DFD247F7E4A000152F7 /* RadioTableViewCell.xib */; };
+		6FF23E04247F7E4A000152F7 /* RadioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF23DFE247F7E4A000152F7 /* RadioTableViewCell.swift */; };
 		6FF37585246E25C70006D048 /* UIFont+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF37584246E25C70006D048 /* UIFont+Extentions.swift */; };
 		6FF37589246E2C620006D048 /* CreateUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF37588246E2C620006D048 /* CreateUserModel.swift */; };
 		6FF3758B246E4BFC0006D048 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF3758A246E4BFC0006D048 /* SignUpInteractor.swift */; };
@@ -135,6 +144,15 @@
 		6FCF5B08246ECAB200F07760 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		6FCF5B0A2473692300F07760 /* SelectProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectProfileViewController.swift; sourceTree = "<group>"; };
 		6FCF5B0C24736A1F00F07760 /* AvtarImageListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvtarImageListCell.swift; sourceTree = "<group>"; };
+		6FF23DED247E7F5C000152F7 /* TellAboutUsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TellAboutUsInteractor.swift; sourceTree = "<group>"; };
+		6FF23DEE247E7F5C000152F7 /* TellUsAboutYouViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TellUsAboutYouViewModel.swift; sourceTree = "<group>"; };
+		6FF23DEF247E7F5C000152F7 /* TellUsAboutYouViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TellUsAboutYouViewController.swift; sourceTree = "<group>"; };
+		6FF23DF4247E99BA000152F7 /* UIViewController+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extentions.swift"; sourceTree = "<group>"; };
+		6FF23DF9247F7E4A000152F7 /* ClientOrCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientOrCreatorViewController.swift; sourceTree = "<group>"; };
+		6FF23DFA247F7E4A000152F7 /* ClientOrCreativeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientOrCreativeInteractor.swift; sourceTree = "<group>"; };
+		6FF23DFB247F7E4A000152F7 /* ClientOrCreatorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientOrCreatorViewModel.swift; sourceTree = "<group>"; };
+		6FF23DFD247F7E4A000152F7 /* RadioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RadioTableViewCell.xib; sourceTree = "<group>"; };
+		6FF23DFE247F7E4A000152F7 /* RadioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioTableViewCell.swift; sourceTree = "<group>"; };
 		6FF37584246E25C70006D048 /* UIFont+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extentions.swift"; sourceTree = "<group>"; };
 		6FF37588246E2C620006D048 /* CreateUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserModel.swift; sourceTree = "<group>"; };
 		6FF3758A246E4BFC0006D048 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
@@ -167,6 +185,7 @@
 		690317E5243DDEBB00A86D83 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				6FF23DF4247E99BA000152F7 /* UIViewController+Extentions.swift */,
 				690317E6243DDEBB00A86D83 /* DateGeneric.swift */,
 				690317E7243DDEBB00A86D83 /* Extension.swift */,
 				690317E8243DDEBB00A86D83 /* ViewExtension.swift */,
@@ -305,7 +324,9 @@
 		6982D5DC243B4169009E09D0 /* demoProject */ = {
 			isa = PBXGroup;
 			children = (
+				6FF23DF8247F7E4A000152F7 /* ClientOrCreator */,
 				6982D5DD243B4169009E09D0 /* AppDelegate.swift */,
+				6FF23DEB247E7F5C000152F7 /* TellUsaboutyou */,
 				6F4E8557247B2088006A99E5 /* Location */,
 				6F4E8532247535DC006A99E5 /* Base View */,
 				6FCF5B03246EC39D00F07760 /* Profile */,
@@ -446,6 +467,36 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		6FF23DEB247E7F5C000152F7 /* TellUsaboutyou */ = {
+			isa = PBXGroup;
+			children = (
+				6FF23DED247E7F5C000152F7 /* TellAboutUsInteractor.swift */,
+				6FF23DEE247E7F5C000152F7 /* TellUsAboutYouViewModel.swift */,
+				6FF23DEF247E7F5C000152F7 /* TellUsAboutYouViewController.swift */,
+			);
+			path = TellUsaboutyou;
+			sourceTree = "<group>";
+		};
+		6FF23DF8247F7E4A000152F7 /* ClientOrCreator */ = {
+			isa = PBXGroup;
+			children = (
+				6FF23DF9247F7E4A000152F7 /* ClientOrCreatorViewController.swift */,
+				6FF23DFA247F7E4A000152F7 /* ClientOrCreativeInteractor.swift */,
+				6FF23DFB247F7E4A000152F7 /* ClientOrCreatorViewModel.swift */,
+				6FF23DFC247F7E4A000152F7 /* View */,
+			);
+			path = ClientOrCreator;
+			sourceTree = "<group>";
+		};
+		6FF23DFC247F7E4A000152F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6FF23DFD247F7E4A000152F7 /* RadioTableViewCell.xib */,
+				6FF23DFE247F7E4A000152F7 /* RadioTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6FF37586246E2C2C0006D048 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,6 +596,7 @@
 				6982D602243B5469009E09D0 /* CalibreMediumItalic.otf in Resources */,
 				6982D603243B5469009E09D0 /* CalibreMedium.otf in Resources */,
 				6982D607243B5469009E09D0 /* CalibreThin.otf in Resources */,
+				6FF23E03247F7E4A000152F7 /* RadioTableViewCell.xib in Resources */,
 				6F4E856D247B2553006A99E5 /* RecentLocationTableViewCell.xib in Resources */,
 				6982D605243B5469009E09D0 /* CalibreBoldItalic.otf in Resources */,
 				6982D608243B5469009E09D0 /* CalibreSemibold.otf in Resources */,
@@ -624,19 +676,23 @@
 				690317F3243DDEBB00A86D83 /* UINavigationController.swift in Sources */,
 				69322FCB243C62A100815434 /* APIRouter.swift in Sources */,
 				6F4E8559247B209E006A99E5 /* ChangeLocationViewController.swift in Sources */,
+				6FF23DF2247E7F5C000152F7 /* TellUsAboutYouViewModel.swift in Sources */,
 				6F4E853724753788006A99E5 /* BaseViewController.swift in Sources */,
 				690317F1243DDEBB00A86D83 /* UIStoryboard+Controllers.swift in Sources */,
 				69322FC3243C629500815434 /* Logging.swift in Sources */,
 				6FCF5B09246ECAB200F07760 /* ProfileViewModel.swift in Sources */,
 				6FCF5B06246EC5AB00F07760 /* ProfileViewController.swift in Sources */,
+				6FF23E01247F7E4A000152F7 /* ClientOrCreativeInteractor.swift in Sources */,
 				690317F0243DDEBB00A86D83 /* GeneralExtensions.swift in Sources */,
 				69322FC1243C629500815434 /* Constants.swift in Sources */,
+				6FF23E04247F7E4A000152F7 /* RadioTableViewCell.swift in Sources */,
 				6FCF5B0B2473692400F07760 /* SelectProfileViewController.swift in Sources */,
 				6F4E8570247BE3CA006A99E5 /* PlaceSearch.swift in Sources */,
 				6FF3758B246E4BFC0006D048 /* SignUpInteractor.swift in Sources */,
 				690317F2243DDEBB00A86D83 /* DateExtensions.swift in Sources */,
 				6FF37585246E25C70006D048 /* UIFont+Extentions.swift in Sources */,
 				6FCF5B0D24736A1F00F07760 /* AvtarImageListCell.swift in Sources */,
+				6FF23DF1247E7F5C000152F7 /* TellAboutUsInteractor.swift in Sources */,
 				6F4E855524774408006A99E5 /* GenericCodable.swift in Sources */,
 				69322FC4243C629500815434 /* Environment.swift in Sources */,
 				6F4E8563247B243E006A99E5 /* SearchFilter.swift in Sources */,
@@ -647,10 +703,13 @@
 				690317EF243DDEBB00A86D83 /* ViewExtension.swift in Sources */,
 				69322FC5243C629500815434 /* Reachability.swift in Sources */,
 				6F4E8565247B2475006A99E5 /* LocationManger.swift in Sources */,
+				6FF23DF5247E99BA000152F7 /* UIViewController+Extentions.swift in Sources */,
 				6F4E853A24753825006A99E5 /* BaseViewModel.swift in Sources */,
 				6F4E855624774408006A99E5 /* Generic.swift in Sources */,
 				6F4E855D247B22E8006A99E5 /* ChangeLocationViewModel.swift in Sources */,
 				6982D5E2243B4169009E09D0 /* WelcomeViewController.swift in Sources */,
+				6FF23DF3247E7F5C000152F7 /* TellUsAboutYouViewController.swift in Sources */,
+				6FF23E02247F7E4A000152F7 /* ClientOrCreatorViewModel.swift in Sources */,
 				695D3BEB243CA27B00196CAB /* WelcomeCollectionViewCell.swift in Sources */,
 				6F4E853E24753C9D006A99E5 /* Key.swift in Sources */,
 				69322FCA243C62A100815434 /* APIManager.swift in Sources */,
@@ -662,6 +721,7 @@
 				69322FC6243C629500815434 /* APICallError.swift in Sources */,
 				6F4E854E247566CA006A99E5 /* MasterModel.swift in Sources */,
 				690317F6243DE12500A86D83 /* WelcomeModel.swift in Sources */,
+				6FF23E00247F7E4A000152F7 /* ClientOrCreatorViewController.swift in Sources */,
 				6939AE7024404B9500781629 /* SignUpViewModel.swift in Sources */,
 				695D3BE6243CA1CE00196CAB /* WelcomeViewModel.swift in Sources */,
 			);

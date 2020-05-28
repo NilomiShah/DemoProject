@@ -28,6 +28,9 @@ PODS:
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
+  - SwiftMessages (7.0.1):
+    - SwiftMessages/App (= 7.0.1)
+  - SwiftMessages/App (7.0.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -36,6 +39,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - IQKeyboardManagerSwift
   - SDWebImage
+  - SwiftMessages
 
 SPEC REPOS:
   trunk:
@@ -48,6 +52,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
     - SDWebImage
+    - SwiftMessages
 
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
@@ -59,7 +64,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
+  SwiftMessages: b577dc7043be8b299857ab35bb663dbff6483bd0
 
-PODFILE CHECKSUM: eafb3d6bf9334787a808a7663f27993cd467d685
+PODFILE CHECKSUM: c5a442391d68c9285295f8e4ee88610ce35d22f0
 
 COCOAPODS: 1.9.1

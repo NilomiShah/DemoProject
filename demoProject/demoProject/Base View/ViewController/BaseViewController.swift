@@ -13,6 +13,11 @@ class BaseViewController: UIViewController {
 
     var baseviewModel = BaseViewModel()
     
+    func startLoading() {
+    }
+    
+    func stopLoading() {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
